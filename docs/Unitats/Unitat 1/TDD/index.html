@@ -1,0 +1,698 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://fpieseljust.github.io/pps21-22/Unitats/Unitat%201/TDD/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>TDD - PPS 21-22</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#test-driven-developement" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="PPS 21-22" class="md-header__button md-logo" aria-label="PPS 21-22" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PPS 21-22
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              TDD
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="PPS 21-22" class="md-nav__button md-logo" aria-label="PPS 21-22" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    PPS 21-22
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Unitats
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Unitats" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Unitats
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          Unitat 1 - Introducció a la programació segura
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Unitat 1 - Introducció a la programació segura" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Unitat 1 - Introducció a la programació segura
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          TDD
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        TDD
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#com-podem-implementar-lo-en-python" class="md-nav__link">
+    Com podem implementar-lo en Python?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pytest" class="md-nav__link">
+    Pytest
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sintaxis" class="md-nav__link">
+    Sintaxis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemple" class="md-nav__link">
+    Exemple
+  </a>
+  
+    <nav class="md-nav" aria-label="Exemple">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#primers-passos" class="md-nav__link">
+    Primers passos
+  </a>
+  
+    <nav class="md-nav" aria-label="Primers passos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operationspy" class="md-nav__link">
+    operations.py
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test_py" class="md-nav__link">
+    test_.py
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operationspy_1" class="md-nav__link">
+    operations.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercici" class="md-nav__link">
+    Exercici
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#com-podem-implementar-lo-en-python" class="md-nav__link">
+    Com podem implementar-lo en Python?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pytest" class="md-nav__link">
+    Pytest
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sintaxis" class="md-nav__link">
+    Sintaxis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemple" class="md-nav__link">
+    Exemple
+  </a>
+  
+    <nav class="md-nav" aria-label="Exemple">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#primers-passos" class="md-nav__link">
+    Primers passos
+  </a>
+  
+    <nav class="md-nav" aria-label="Primers passos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operationspy" class="md-nav__link">
+    operations.py
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test_py" class="md-nav__link">
+    test_.py
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operationspy_1" class="md-nav__link">
+    operations.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercici" class="md-nav__link">
+    Exercici
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <blockquote>
+<p>Basat en el material publicat a <a href="https://aulasoftwarelibre.github.io/taller-de-python/Testing/TDD/">https://aulasoftwarelibre.github.io/taller-de-python/Testing/TDD/</a> baix llicència Copyleft - CC BY-NC 4.0 - Aula de Software Libre</p>
+</blockquote>
+<h1 id="test-driven-developement">Test Driven Developement</h1>
+<p><img alt="TDD" src="https://marsner.com/wp-content/uploads/test-driven-development-TDD.png" /></p>
+<p>El desenvolupament guiat per proves de programari, o Test-driven development (TDD) és una pràctica d'enginyeria de programari que involucra dues pràctiques més: Escriure les proves primer (Test First Development) i Refactorització (Refactoring). Per escriure les proves generalment es fan servir les proves unitàries (unit test en anglès). En primer lloc, s'escriu una prova i es verifica que la nova prova falla. A continuació, s'implementa el codi que fa que la prova passe satisfactòriament i tot seguit es refactoritza el codi escrit. El propòsit del desenvolupament guiat per proves és aconseguir un codi net que funcione. La idea és que els requisits siguen traduïts a proves, així, quan les proves passen es garantirà que el programari compleix amb els requisits que s'han establert.</p>
+<h2 id="com-podem-implementar-lo-en-python">Com podem implementar-lo en Python?</h2>
+<p>Si bé la biblioteca estàndard de Python ve amb <em>unittest</em> com a llibreria estàndar per a proves, Pytest és el framework de referència per provar el codi Python.</p>
+<p>Pytest fa que siga fàcil escriure, organitzar i executar proves. En comparació amb unittest, de la biblioteca estàndard de Python, Pytest:</p>
+<ol>
+<li>Requereix menys codi repetitiu perquè els seus conjunts de proves siguen més llegibles.</li>
+<li>Suports de la plana <em>assertdeclaració</em>, que és molt més fàcil de llegir i més fàcil de recordar en comparació amb els <em>assertSomethingmètodes</em> - com <em>assertEquals</em>, <em>assertTruey</em> <em>assertContains</em>- en unittest.</li>
+<li>S'actualitza més sovint, ja que no forma part de la biblioteca estàndard de Python.</li>
+<li>Simplifica la configuració i el desmuntatge de l'estat de prova amb el sistema de fixació.</li>
+<li>Utilitza un enfocament funcional.</li>
+</ol>
+<p>A més, amb Pytest podem tindre un estil coherent a tots els nostres projectes de Python. Per exemple, suposem que teniu dues aplicacions web: una construïda amb Django i l'altra construïda amb Flask. Sense Pytest, el més probable és que aprofitem el <em>framework</em> de Django juntament amb una extensió de Flask com Flask-Testing. Per tant, els seus conjunts de proves tindrien estils diferents. Amb Pytest, d'altra banda, tots dos conjunts de proves tindrien un estil de codi coherent, cosa que facilitaria el salt de l'un a l'altre.</p>
+<p>Pytest també té un gran ecosistema de complements mantingut per la comunitat.</p>
+<p>Com per exemple:</p>
+<ul>
+<li>
+<p><a href="https://Pytest-django.readthedocs.io/">Pytest-django</a>: proporciona un conjunt de ferramentes creades específicament per a provar aplicacions de Django</p>
+</li>
+<li>
+<p><a href="https://github.com/Pytest-dev/Pytest-xdist">Pytest-xdist</a>: s'utilitza per a executar proves en paral·lel</p>
+</li>
+<li>
+<p><a href="https://Pytest-cov.readthedocs.io/en/latest/">Pytest-cov</a>: agrega soport de cobertura de codi</p>
+</li>
+<li>
+<p><a href="https://github.com/Pytest-dev/Pytest-instafail">Pytest-instafail</a>: mostra fallos i errors inmediatament en lloc d'esperar fins el final d'una execució</p>
+</li>
+</ul>
+<h2 id="pytest">Pytest</h2>
+<p><img alt="Pytest" src="https://warehouse-camo.ingress.cmh1.psfhosted.org/1599e7e4caeaac6ca1a8d4ace3cefa8a0d160925/68747470733a2f2f6769746875622e636f6d2f7079746573742d6465762f7079746573742f7261772f6d61696e2f646f632f656e2f696d672f7079746573745f6c6f676f5f6375727665732e737667" /></p>
+<p>El primer que hem de fer si volem utilitzar Pytest per testejar el nostre codi és instal·lar-lo. Per això obrirem una nova terminal i introduirem la següent ordre (fes-ho a un entorn virtual). Tal com es pot veure estem fent ús de pip el gestor de paquets de Python que prèviament havíem instal·lat.</p>
+<pre><code>pip install pytest
+</code></pre>
+<p>Una vegada fet això podem comprovar la versió que tenim instal·lada escrivint la següent ordre:</p>
+<pre><code>pytest --version
+</code></pre>
+<p>I obtindríem un resultat com aquest:</p>
+<pre><code>This is pytest version 4.6.9, imported from /usr/lib/python2.7/dist-packages/pytest.pyc
+</code></pre>
+<p>Una vegada ho hem instal·lat i hem comprovat la versió que tenim arriba l'hora de començar a fer els nostres primers tests.</p>
+<p>A l'hora d'escriure les proves cal que tant els fitxers on les escriurem com les mateixes funcions de prova dins del fitxer comencen amb el prefix <em>test_</em>, ja que si no, quan cridem a <em>pytest</em> passant-li la ruta del directori, aquest no les trobarà.</p>
+<p>Un exemple de crida a Pytest seria una cosa així:</p>
+<pre><code>pytest /home/ferran/Desktop/Curs
+</code></pre>
+<h2 id="sintaxis">Sintaxis</h2>
+<p>El funcionament de <em>pytest</em> és similar al de totes les llibreries de <em>testing</em>.</p>
+<pre><code class="language-python">
+assert Val1 == Val2   #¿Val1 igual Val2?
+assert Val1 != Val2   #¿Val1 diferente Val2?
+assert Val1 &lt;  Val2   #¿Val1 menor que Val2?
+assert Val1 &lt;= Val2   #¿Val1 menor o igual que Val2?
+assert Val1 &gt;  Val2   #¿Val1 mayor que Val2?
+assert Val1 &gt;= Val2   #¿Val1 mayor o igual que Val2?
+assert Val1 == TRUE   #¿Val1 igual TRUE?
+assert Val1 == FALSE  #¿Val1 igual FALSE?
+
+</code></pre>
+<h2 id="exemple">Exemple</h2>
+<p>Suposem que hem d'implementar una calculadora. Per a això, definirem una sèrie de funcions que volem que estiguen disponibles a la nostra calculadora. Agafarem la funció <em>suma</em> per a continuar amb l'exemple. Si seguim al peu de la lletra les indicacions de TDD, el primer que hem de fer és crear la funció buida simplement per poder cridar-la, implementar la seva prova i executar-la comprovant la falla.</p>
+<p>Per a això hem de crear un nou fitxer a qui anomenem <em>operations.py</em> en el que definirem les funcions i crearem un fitxer anomenat test_.py on crearem la nostra funció <em>test_operations</em>()</p>
+<h3 id="primers-passos">Primers passos</h3>
+<h4 id="operationspy">operations.py</h4>
+<pre><code class="language-python">
+def suma(sumad1, sumand2):
+   return 0
+
+</code></pre>
+<h4 id="test_py">test_.py</h4>
+<pre><code class="language-python">
+import pytest
+import operations
+
+def test_operations():
+   assert operations.suma(3,3) == 6
+
+</code></pre>
+<p>Una vegada hem fet això, procedim a la <strong>refactorització</strong>. Hem d'implementar la nostra funció encarregada de calcular la suma:</p>
+<h4 id="operationspy_1">operations.py</h4>
+<pre><code class="language-python">
+def suma(sumand1, sumand2):
+   return sumand1 + sumand2
+</code></pre>
+<p>Una vegada implementada, hem d'executar les proves sobre la funció suma:</p>
+<pre><code>pytest test_.py
+</code></pre>
+<p>I si tot ha anat bé, obtindrem un resultat similar a aquest:</p>
+<pre><code>===================================== comença la sessió de prova ========== ============================
+plataforma linux -- Python 3.8.5, pytest-6.2.3, py-1.10.0, pluggy-0.13.1
+rootdir: /home/ferran/Desktop/Curs
+collected 1 item
+
+test_.py .                                                                              [100%]
+
+====================================== 1 passat en 0,01 s ======= =================================
+</code></pre>
+<h2 id="exercici">Exercici</h2>
+<p>Acaba d'implementar les funcions resta, multiplicació, divisió, arrel, exponent i factorial i el·labora els seus testos corresponents.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Home
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../../about/" class="md-footer__link md-footer__link--next" aria-label="Next: About" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              About
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>

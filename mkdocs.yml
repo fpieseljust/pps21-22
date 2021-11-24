@@ -1,4 +1,12 @@
-site_name: My Docs
+site_name: PPS 21-22
 site_url: https://fpieseljust.github.io/pps21-22/
 docs_dir: 'md'
 site_dir: 'docs'
+nav:
+    - Home: index.md
+    - Unitats:
+      - Unitat 1 - Introducció a la programació segura:
+        - TDD: Unitats/Unitat 1/TDD.md
+    - About: about.md
+theme:
+  name: material
