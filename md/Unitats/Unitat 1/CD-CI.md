@@ -10,7 +10,7 @@ No fa gaire, aquestes integracions eren grans i amb setmanes (o mesos) de difer�
 
 Després de cada integració, heu de crear el codi font. Construir significa transformar el vostre codi d'alt nivell en un format que el vostre ordinador sap executar. Finalment, el resultat es prova sistemàticament per assegurar-vos que als vostres canvis no han introduït errors.
 
-## Com sona això?
+## Perquè CD/CI?
 
 A nivell d'equip, permet una millor cultura d'enginyeria, on proporcioneu valor aviat i sovint. Es fomenta la col·laboració i es detecten errors molt abans. La integració contínua permetrà:
 
@@ -20,10 +20,10 @@ A nivell d'equip, permet una millor cultura d'enginyeria, on proporcioneu valor 
 - Eliminar moltes despeses generals tedioses i permet centrar-vos en allò que importa
 - Reduir el temps dedicat a resoldre conflictes (quan diferents persones modifiquen el mateix codi)
 
-# Conceptes bàsics
+## Conceptes bàsics
 Hi ha diverses idees i pràctiques clau que cal entendre per treballar de manera eficaç amb una integració contínua. A més, pot haver-hi algunes paraules i frases que no coneixeu, però que s'utilitzen sovint quan parleu de CI. Aquest capítol us introduirà en aquests conceptes i l'argot que els acompanya.
 
-## Repositori d'origen únic
+### Repositori d'origen únic
 Si col·laboreu amb altres persones en una única base de codi, és habitual tenir un repositori compartit de codi font. Cada desenvolupador que treballa en el projecte crea una còpia local i fa canvis. Un cop estan satisfets amb els canvis, els fusionen de nou al repositori central.
 
 S'ha convertit en un estàndard utilitzar sistemes de control de versions (VCS) com Git per gestionar aquest flux de treball. Els equips solen utilitzar un servei extern per allotjar el seu codi font i gestionar totes les parts mòbils. Els més populars són GitHub, BitBucket i GitLab.
