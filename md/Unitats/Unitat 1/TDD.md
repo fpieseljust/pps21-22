@@ -124,6 +124,10 @@ I si tot ha anat bé, obtindrem un resultat similar a aquest:
 
     ====================================== 1 passat en 0,01 s ======= =================================
 
-## Exercici
+## Activitat 1
 
 Acaba d'implementar les funcions resta, multiplicació, divisió, arrel, exponent i factorial i el·labora els seus testos corresponents.
+
+## Activitat 2
+
+Una vegada comprovat tots els testos sobre el nostre codi, configura VSCode per a llançar de nou els testos ràpidament després d'una refactorització.
