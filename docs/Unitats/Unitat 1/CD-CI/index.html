@@ -440,6 +440,53 @@
 
             
           
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Unitat 3 - Detecció i correcció de vulnerabilitats en aplicacions web
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Unitat 3 - Detecció i correcció de vulnerabilitats en aplicacions web" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Unitat 3 - Detecció i correcció de vulnerabilitats en aplicacions web
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Unitat%203/APIRest/" class="md-nav__link">
+        API Rest
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -651,8 +698,8 @@
 <h2 id="automatitzacio-de-la-construccio">Automatització de la construcció</h2>
 <p>Com s'ha esmentat anteriorment, construir el vostre codi significa agafar el codi font en brut, i tot el necessari per a la seva execució, i traduir-lo a un format que els ordinadors puguin executar directament. Python és un llenguatge interpretat, de manera que la seva "construcció" gira principalment al voltant de l'execució de proves en lloc de la compilació.</p>
 <p>Executar aquests passos manualment després de cada petit canvi és tediós i requereix un temps i una atenció valuosos de la resolució de problemes real que esteu intentant fer. Una gran part de la integració contínua és automatitzar aquest procés.</p>
-<p>Què significa això per a Python? Penseu en un fragment de codi més complicat que hàgiu escrit. Si heu utilitzat una biblioteca, paquet o <em>framework</em> que no ve amb la biblioteca estàndard de Python (penseu qualsevol cosa que necessiteu instal·lar amb pip), Python ha de saber-ho, de manera que el programa sàpiga on buscar quan trobe. ordres que no reconeix.</p>
-<p>Emmagatzemeu una llista d'aquests paquets a requirements.txt o un fitxer Pipfile. Aquestes són les dependències del vostre codi i són necessàries per a una construcció exitosa.</p>
+<p>Què significa això per a Python? Penseu en un fragment de codi més complicat que hàgiu escrit. Si heu utilitzat una biblioteca, paquet o <em>framework</em> que no ve amb la biblioteca estàndard de Python (penseu qualsevol cosa que necessiteu instal·lar amb pip), Python ha de saber-ho, de manera que el programa sàpiga on buscar quan trobe ordres que no reconeix.</p>
+<p>Emmagatzemeu una llista d'aquests paquets a <strong>requirements.txt</strong> o un fitxer <em>Pipfile</em>. Aquestes són les dependències del vostre codi i són necessàries per a una construcció exitosa.</p>
 <p>Sovint escoltaràs la frase "trencant la construcció". Quan trenqueu la compilació, vol dir que heu introduït un canvi que va fer que el producte final no es puga utilitzar. No et preocupes. Li passa a tothom, fins i tot als desenvolupadors sèniors. Voleu evitar-ho principalment perquè impedirà que tots els altres treballen.</p>
 <p>L'objectiu de CI és que tothom treballe en una base estable coneguda. Si clonen un repositori que està trencant la compilació, treballaran amb una versió trencada del codi i no podran introduir ni provar els seus canvis. Quan trenqueu la construcció, la màxima prioritat és arreglar-la perquè tothom puga reprendre la feina.</p>
 <p><img alt="Breaking change" src="https://files.realpython.com/media/CI1-BreakingChange.45a0e6b1fa07.png" /></p>
@@ -665,7 +712,7 @@
 <p>Si alguna cosa funciona al vostre ordinador, funcionarà a tots els ordinadors? Probablement no. És una excusa clixé (el típic, "al meu ordinador va"). Fer que el codi funcione localment no és el final de la vostra responsabilitat.</p>
 <p>Per fer front a aquest problema, la majoria de les empreses utilitzen un servei extern per gestionar la integració, de la mateixa manera que s'utilitza GitHub per allotjar el vostre repositori de codi font. Els serveis externs tenen servidors on creen codi i executen proves. Actuen com a monitors del vostre repositoris i impedeixen que ningú es fusione amb la branca mestra si els seus canvis trenquen la compilació.</p>
 <p><img alt="Merging with CI server" src="https://files.realpython.com/media/CI-Testing_1.dd4a5d09bedd.png" /></p>
-<p>Hi ha molts serveis d'aquest tipus, amb diferents característiques i preus. La majoria tenen un nivell gratuït perquè pugueu experimentar amb un dels vostres repositoris. Utilitzareu un servei anomenat en els exercis.</p>
+<p>Hi ha molts serveis d'aquest tipus, amb diferents característiques i preus. La majoria tenen un nivell gratuït perquè pugueu experimentar amb un dels vostres repositoris. Utilitzareu un servei anomenat <strong>circleci</strong> en els exercis.</p>
 <h2 id="proves-en-un-entorn-preparat">Proves en un entorn preparat</h2>
 <p>Un entorn de producció és on finalment s'executarà el vostre programari. Fins i tot després de crear i provar la vostra aplicació amb èxit, no podeu estar segur que el vostre codi funcione a l'ordinador de destinació. És per això que els equips despleguen el producte final en un entorn que imite l'entorn de producció. Una vegada esteu segur que tot funciona, l'aplicació es desplega a l'entorn de producció.</p>
 <p>Sentiràs que la gent parla d'aquest clon de l'entorn de producció utilitzant termes com ara entorn de desenvolupament o entorn de prova. És habitual utilitzar abreviatures com DEV per a l'entorn de desenvolupament i PROD per a l'entorn de producció.</p>
@@ -681,10 +728,12 @@
 <li>Seqüències (llistes)</li>
 <li>Escalars (cadenes o números)</li>
 </ul>
-<p>És molt senzill de llegir:
-- El sagnat es pot utilitzar per a l'estructura.
-- Els dos punts separen els parells clau-valor.
-- Els guions s'utilitzen per crear llistes.</p>
+<p>És molt senzill de llegir:</p>
+<ul>
+<li>El sagnat es pot utilitzar per a l'estructura.</li>
+<li>Els dos punts separen els parells clau-valor.</li>
+<li>Els guions s'utilitzen per crear llistes.</li>
+</ul>
 <p>Este seria un exemple d'aquest arxiu d'integració:</p>
 <pre><code class="language-yaml"># Python CircleCI 2.0 configuration file
 version: 2
@@ -729,7 +778,7 @@ jobs:
 <li><strong>jobs</strong>: els treballs són els passos individuals que s'han de donar per a la construcció de l'aplicació. El <em>build</em> pot estar compost d'un sol <em>job</em>.</li>
 <li><strong>build</strong>: Com s'ha dit abans, <em>build</em> és el nom de la construcció.</li>
 <li><strong>docker</strong>: els passos d'un treball es produeixen en un entorn anomenat executor. L'executor comú de CircleCI és un contenidor Docker. És un entorn d'execució allotjat al núvol, però existeixen altres opcions, com ara un entorn macOS.</li>
-<li><strong>imatge</strong>: una imatge Docker és un fitxer utilitzat per crear un contenidor Docker en execució. Estem utilitzant una imatge que té Python 3.7 preinstal·lat.</li>
+<li><strong>image</strong>: una imatge Docker és un fitxer utilitzat per crear un contenidor Docker en execució. Estem utilitzant una imatge que té Python 3.7 preinstal·lat.</li>
 <li><strong>working_directory</strong>: el vostre repositori s'ha de consultar en algun lloc del servidor de compilació. El directori de treball representa la ruta del fitxer on s'emmagatzemarà el repositori.</li>
 <li><strong>steps</strong>: aquesta clau marca l'inici d'una llista de passos que ha de realitzar el servidor de compilació.</li>
 <li><strong>checkout</strong>: el primer pas que ha de fer el servidor és obtindre el codi font i portar-lo al directori de treball. Això es realitza mitjançant un pas especial anomenat <em>checkout</em>.</li>
@@ -800,13 +849,13 @@ jobs:
       
       
         
-        <a href="../../../about/" class="md-footer__link md-footer__link--next" aria-label="Next: About" rel="next">
+        <a href="../../Unitat%203/APIRest/" class="md-footer__link md-footer__link--next" aria-label="Next: API Rest" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              About
+              API Rest
             </div>
           </div>
           <div class="md-footer__button md-icon">

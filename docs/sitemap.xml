@@ -2,22 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://fpieseljust.github.io/pps21-22/</loc>
-         <lastmod>2021-11-24</lastmod>
+         <lastmod>2022-03-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://fpieseljust.github.io/pps21-22/about/</loc>
-         <lastmod>2021-11-24</lastmod>
+         <lastmod>2022-03-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://fpieseljust.github.io/pps21-22/Unitats/Unitat%201/CD-CI/</loc>
-         <lastmod>2021-11-24</lastmod>
+         <lastmod>2022-03-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://fpieseljust.github.io/pps21-22/Unitats/Unitat%201/TDD/</loc>
-         <lastmod>2021-11-24</lastmod>
+         <lastmod>2022-03-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://fpieseljust.github.io/pps21-22/Unitats/Unitat%203/APIRest/</loc>
+         <lastmod>2022-03-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://fpieseljust.github.io/pps21-22/Unitats/Unitat%203/respostes%20exercicis/respostes/</loc>
+         <lastmod>2022-03-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

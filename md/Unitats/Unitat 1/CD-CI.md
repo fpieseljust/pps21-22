@@ -41,9 +41,9 @@ Com s'ha esmentat anteriorment, construir el vostre codi significa agafar el cod
 
 Executar aquests passos manualment després de cada petit canvi és tediós i requereix un temps i una atenció valuosos de la resolució de problemes real que esteu intentant fer. Una gran part de la integració contínua és automatitzar aquest procés.
 
-Què significa això per a Python? Penseu en un fragment de codi més complicat que hàgiu escrit. Si heu utilitzat una biblioteca, paquet o *framework* que no ve amb la biblioteca estàndard de Python (penseu qualsevol cosa que necessiteu instal·lar amb pip), Python ha de saber-ho, de manera que el programa sàpiga on buscar quan trobe. ordres que no reconeix.
+Què significa això per a Python? Penseu en un fragment de codi més complicat que hàgiu escrit. Si heu utilitzat una biblioteca, paquet o *framework* que no ve amb la biblioteca estàndard de Python (penseu qualsevol cosa que necessiteu instal·lar amb pip), Python ha de saber-ho, de manera que el programa sàpiga on buscar quan trobe ordres que no reconeix.
 
-Emmagatzemeu una llista d'aquests paquets a requirements.txt o un fitxer Pipfile. Aquestes són les dependències del vostre codi i són necessàries per a una construcció exitosa.
+Emmagatzemeu una llista d'aquests paquets a **requirements.txt** o un fitxer *Pipfile*. Aquestes són les dependències del vostre codi i són necessàries per a una construcció exitosa.
 
 Sovint escoltaràs la frase "trencant la construcció". Quan trenqueu la compilació, vol dir que heu introduït un canvi que va fer que el producte final no es puga utilitzar. No et preocupes. Li passa a tothom, fins i tot als desenvolupadors sèniors. Voleu evitar-ho principalment perquè impedirà que tots els altres treballen.
 
@@ -67,7 +67,7 @@ Per fer front a aquest problema, la majoria de les empreses utilitzen un servei 
 
 ![Merging with CI server](https://files.realpython.com/media/CI-Testing_1.dd4a5d09bedd.png)
 
-Hi ha molts serveis d'aquest tipus, amb diferents característiques i preus. La majoria tenen un nivell gratuït perquè pugueu experimentar amb un dels vostres repositoris. Utilitzareu un servei anomenat en els exercis.
+Hi ha molts serveis d'aquest tipus, amb diferents característiques i preus. La majoria tenen un nivell gratuït perquè pugueu experimentar amb un dels vostres repositoris. Utilitzareu un servei anomenat **circleci** en els exercis.
 
 ## Proves en un entorn preparat
 Un entorn de producció és on finalment s'executarà el vostre programari. Fins i tot després de crear i provar la vostra aplicació amb èxit, no podeu estar segur que el vostre codi funcione a l'ordinador de destinació. És per això que els equips despleguen el producte final en un entorn que imite l'entorn de producció. Una vegada esteu segur que tot funciona, l'aplicació es desplega a l'entorn de producció.
@@ -93,6 +93,7 @@ En un fitxer YAML, hi ha tres maneres bàsiques de representar dades:
 - Escalars (cadenes o números)
 
 És molt senzill de llegir:
+
 - El sagnat es pot utilitzar per a l'estructura.
 - Els dos punts separen els parells clau-valor.
 - Els guions s'utilitzen per crear llistes.
@@ -154,7 +155,7 @@ Vegem cada línia del fitxer de configuració:
 2. **jobs**: els treballs són els passos individuals que s'han de donar per a la construcció de l'aplicació. El *build* pot estar compost d'un sol *job*.
 3. **build**: Com s'ha dit abans, *build* és el nom de la construcció.
 4. **docker**: els passos d'un treball es produeixen en un entorn anomenat executor. L'executor comú de CircleCI és un contenidor Docker. És un entorn d'execució allotjat al núvol, però existeixen altres opcions, com ara un entorn macOS.
-5. **imatge**: una imatge Docker és un fitxer utilitzat per crear un contenidor Docker en execució. Estem utilitzant una imatge que té Python 3.7 preinstal·lat.
+5. **image**: una imatge Docker és un fitxer utilitzat per crear un contenidor Docker en execució. Estem utilitzant una imatge que té Python 3.7 preinstal·lat.
 6. **working_directory**: el vostre repositori s'ha de consultar en algun lloc del servidor de compilació. El directori de treball representa la ruta del fitxer on s'emmagatzemarà el repositori.
 7. **steps**: aquesta clau marca l'inici d'una llista de passos que ha de realitzar el servidor de compilació.
 8. **checkout**: el primer pas que ha de fer el servidor és obtindre el codi font i portar-lo al directori de treball. Això es realitza mitjançant un pas especial anomenat *checkout*.

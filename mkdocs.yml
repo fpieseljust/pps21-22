@@ -8,6 +8,8 @@ nav:
       - Unitat 1 - Introducció a la programació segura:
         - TDD: Unitats/Unitat 1/TDD.md
         - CD/CI: Unitats/Unitat 1/CD-CI.md
+      - Unitat 3 - Detecció i correcció de vulnerabilitats en aplicacions web:
+        - API Rest: Unitats/Unitat 3/APIRest.md
     - About: about.md
 theme:
   name: material

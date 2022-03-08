@@ -1,0 +1,1026 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://fpieseljust.github.io/pps21-22/Unitats/Unitat%203/APIRest/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>API Rest - PPS 21-22</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#construim-una-api-rest-amb-nodejs-sqlite-i-express-js" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="PPS 21-22" class="md-header__button md-logo" aria-label="PPS 21-22" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PPS 21-22
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              API Rest
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="PPS 21-22" class="md-nav__button md-logo" aria-label="PPS 21-22" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    PPS 21-22
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Unitats
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Unitats" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Unitats
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          Unitat 1 - Introducció a la programació segura
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Unitat 1 - Introducció a la programació segura" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Unitat 1 - Introducció a la programació segura
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Unitat%201/TDD/" class="md-nav__link">
+        TDD
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Unitat%201/CD-CI/" class="md-nav__link">
+        CD/CI
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Unitat 3 - Detecció i correcció de vulnerabilitats en aplicacions web
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Unitat 3 - Detecció i correcció de vulnerabilitats en aplicacions web" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Unitat 3 - Detecció i correcció de vulnerabilitats en aplicacions web
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          API Rest
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        API Rest
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requisits-previs" class="md-nav__link">
+    Requisits previs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#projecte-nodejs" class="md-nav__link">
+    Projecte Node.js
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#el-servidor-expressjs" class="md-nav__link">
+    El servidor Express.js
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#executem-el-servidor" class="md-nav__link">
+    Executem el servidor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connectem-a-la-base-de-dades-sqlite" class="md-nav__link">
+    Connectem a la base de dades SQLite
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#afegim-lapi-rest-amb-endpoints-dacces-a-dades" class="md-nav__link">
+    Afegim l'API REST amb endpoints d'accés a dades
+  </a>
+  
+    <nav class="md-nav" aria-label="Afegim l'API REST amb endpoints d'accés a dades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#obtindre-llista-dusuaris" class="md-nav__link">
+    Obtindre llista d'usuaris
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obtindre-un-usuari-per-id" class="md-nav__link">
+    Obtindre un usuari per id
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crear-un-usuari" class="md-nav__link">
+    Crear un usuari
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actualitzar-un-usuari-donat-el-seu-id" class="md-nav__link">
+    Actualitzar un usuari donat el seu id
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eliminar-un-usuari-per-id" class="md-nav__link">
+    Eliminar un usuari per id
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercicis" class="md-nav__link">
+    Exercicis
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requisits-previs" class="md-nav__link">
+    Requisits previs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#projecte-nodejs" class="md-nav__link">
+    Projecte Node.js
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#el-servidor-expressjs" class="md-nav__link">
+    El servidor Express.js
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#executem-el-servidor" class="md-nav__link">
+    Executem el servidor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connectem-a-la-base-de-dades-sqlite" class="md-nav__link">
+    Connectem a la base de dades SQLite
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#afegim-lapi-rest-amb-endpoints-dacces-a-dades" class="md-nav__link">
+    Afegim l'API REST amb endpoints d'accés a dades
+  </a>
+  
+    <nav class="md-nav" aria-label="Afegim l'API REST amb endpoints d'accés a dades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#obtindre-llista-dusuaris" class="md-nav__link">
+    Obtindre llista d'usuaris
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obtindre-un-usuari-per-id" class="md-nav__link">
+    Obtindre un usuari per id
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crear-un-usuari" class="md-nav__link">
+    Crear un usuari
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actualitzar-un-usuari-donat-el-seu-id" class="md-nav__link">
+    Actualitzar un usuari donat el seu id
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eliminar-un-usuari-per-id" class="md-nav__link">
+    Eliminar un usuari per id
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercicis" class="md-nav__link">
+    Exercicis
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="construim-una-api-rest-amb-nodejs-sqlite-i-express-js">Construim una API Rest amb Node.js, SQLite i Express JS</h1>
+<p><img alt="tecnologies" src="../img/node-express-mocha-chai.png" /></p>
+<p>En esta pràctica construirem una API Rest utilitzant Node.js, SQLite i Express.js. </p>
+<p>Els principals components de la nostra API seran:</p>
+<ul>
+<li>El projecte Node.js creat amb NPM</li>
+<li>Un servidor web creat amb Express.js per a gestionar els endpoints, les peticiions i les respostes</li>
+<li>Una base de dades SQLite per a guardar la informació del backend</li>
+</ul>
+<p>Les aplicacions reals no utilitzen normalment SQLite, però ho fem així ja que d'esta forma ens estalviem tindre que configurar un sistema gestor de base de dades com puga ser MySQL.</p>
+<h2 id="requisits-previs">Requisits previs</h2>
+<p>Abans de començar necessitem instal·lar Node.js i git per a crear un repositori local.</p>
+<h2 id="projecte-nodejs">Projecte Node.js</h2>
+<p>Per començar amb el nostre projecte, crearem una carpeta i iniciarem un projecte amb npm:</p>
+<pre><code class="language-bash">mkdir APIRest-node-express-SQLite
+cd APIRest-node-express-SQLite
+npm init
+</code></pre>
+<p>NPM ens demanarà informació sobre el nostre projecte. Els camps més importants són el <em>package name</em> i l'<em>entry point</em>. En el nostre cas, el punt d'entrada d'execució del projecte serà un arxiu anomenat <em>server.js</em> (el nostre servidor Express.js).</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;apirest-node-express-sqlite&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;APIRest amb nodejs, express i sqlite.&quot;,
+  &quot;main&quot;: &quot;server.js&quot;,
+  &quot;scripts&quot;: {
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
+  },
+  &quot;author&quot;: &quot;Ferran Cunyat Pellicer&quot;,
+  &quot;license&quot;: &quot;GPL-3.0-or-later&quot;
+}
+</code></pre>
+<p>Amb npm instal·lem algunes dependències que necessitem:</p>
+<pre><code class="language-bash">npm install express sqlite3 md5
+npm install --save-dev nodemon
+</code></pre>
+<p>Si observes l'arxiu <em>package.json</em> veuràs que se'ns han afegit estes dependències.</p>
+<p>Creeu un repositori de github també per guardar el vostre codi. Recordeu afegir <code>node_modules</code> al vostre <em>.gitignore</em>.</p>
+<pre><code class="language-bash">echo node_modules &gt; .gitignore
+git init -b main
+git add .
+git commit -m &quot;Primer commit&quot;
+git remote add origin  &lt;URL_REMOTA&gt;
+git remote -v
+git push origin main
+</code></pre>
+<h2 id="el-servidor-expressjs">El servidor Express.js</h2>
+<p>Ara podem crear el nostre script principal <code>server.js</code> que servirà de punt d'entrada al servidor utilitzant express.js. Expresss.js ens permet en poques línies tindre un servidor web funcionant:</p>
+<pre><code class="language-javascript">// Create express app
+var express = require(&quot;express&quot;)
+var app = express()
+
+// Server port
+var HTTP_PORT = 9000 
+// Start server
+app.listen(HTTP_PORT, () =&gt; {
+    console.log(&quot;Servidor escoltant a l'adreça http://localhost:%PORT%&quot;.replace(&quot;%PORT%&quot;,HTTP_PORT))
+});
+// Root endpoint
+app.get(&quot;/&quot;, (req, res, next) =&gt; {
+    res.json({&quot;message&quot;:&quot;Ok&quot;})
+});
+
+// Insert here other API endpoints
+
+// Default response for any other request
+// Default response for any other request
+app.use(function (req, res) {
+    res.status(404).json({ &quot;error&quot;: &quot;Invalid endpoint&quot; });
+});
+</code></pre>
+<p>En el codi podem identificar alguns punts importants:</p>
+<ol>
+<li>El servidor express (app)</li>
+<li>El port sobre el que escolta el servidor (HTTP_PORT)</li>
+<li>Un primer endpoint a l'arrel (http://localhost:HTTP_PORT/)</li>
+<li>Una resposta per defecte per a la resta de rutes dns del servidor. Resposta HTTP 404 Not found)</li>
+</ol>
+<h2 id="executem-el-servidor">Executem el servidor</h2>
+<p>Ara, podem afegir un nou punt d'entrada en l'arxiu <em>package.json</em> per a executar el servidor utilitzant <code>npm run</code>.</p>
+<pre><code class="language-json">&quot;scripts&quot;: {
+    &quot;start&quot;: &quot;nodemon server.js&quot;,
+    &quot;test&quot;: &quot;echo &quot;Error: no test specified&quot; &amp;&amp; exit 1&quot;
+  },
+</code></pre>
+<p>Ara podem executar el nostre servidor amb <code>npm run start</code>.</p>
+<p>Si tot ha anat bé, en consola ens apareixerà <code>Servidor escoltant a l'adreça http://localhost:9000</code>.</p>
+<p>Ara si podràs accedir a l'arrel del servidor través del navegador al nostre servidor. Obtindràs com a resposta un json amb el missatge <code>Ok</code>.</p>
+<p><code>``javascript</code></p>
+<p>Resposta:</p>
+<pre><code class="language-json">{
+&quot;message&quot;: &quot;Ok&quot;
+}
+</code></pre>
+<p>Al configurar <code>nodemon server.js</code> com a punt d'entrada, cada vegada que fem canvis al nostre codi, el servidor es llançarà de nou amb el nou codi.</p>
+<h2 id="connectem-a-la-base-de-dades-sqlite">Connectem a la base de dades SQLite</h2>
+<p>Arribats a este punt, tenim un servidor funcionant, però necessitem que este servidor es connecte a una base de dades per a que l'API consumisca dades des d'ella i envie la resposta al client. En una aplicació real, normalment aniriem contra un altre servidor connectat per xarxa amb un sistema de gestió de bases de dades tipus MySQL, MariaDB, MongoDB, ... però per simplicitat utilitzarem SQLite.</p>
+<p>SQLite és una implementació d'una base de dades que funciona contra arxius locals, sense necessitat de tindre tot un sistema que ens gestione la base de dades. Per connectar, utilitzarem la llibreria de javascript <code>sqlite3</code>.</p>
+<p>En un nou arxiu <code>database.js</code> crearem un arxiu de connexió i d'inicialització de la base de dades.</p>
+<pre><code class="language-javascript">var sqlite3 = require('sqlite3').verbose()
+var md5 = require('md5')
+
+const DBSOURCE = &quot;db.sqlite&quot;
+
+let db = new sqlite3.Database(DBSOURCE, (err) =&gt; {
+    if (err) {
+      // Cannot open database
+      console.error(err.message)
+      throw err
+    }else{
+        console.log('Connected to the SQLite database.')
+        db.run(`CREATE TABLE user (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name text, 
+            email text UNIQUE, 
+            password text, 
+            CONSTRAINT email_unique UNIQUE (email)
+            )`,
+        (err) =&gt; {
+            if (err) {
+                // Table already created
+            }else{
+                // Table just created, creating some rows
+                var insert = 'INSERT INTO user (name, email, password) VALUES (?,?,?)'
+                db.run(insert, [&quot;admin&quot;,&quot;admin@example.com&quot;,md5(&quot;admin123456&quot;)])
+                db.run(insert, [&quot;user&quot;,&quot;user@example.com&quot;,md5(&quot;user123456&quot;)])
+            }
+        });  
+    }
+});
+
+
+module.exports = db
+</code></pre>
+<p>Fixem-nos en alguns punts importants del codi:</p>
+<ol>
+<li>Carreguem les llibreries <em>md5</em> i <em>sqlite3</em>.</li>
+<li>Intentem connectar a una base de dades <code>db.sqlite</code>:<ol>
+<li>En cas de no existir, sqlite la crearà (en un arxiu).</li>
+<li>Una vegada creada, intenta crear una taula d'usuaris que contindrà els noms, correus i contrasenya.<ol>
+<li>Si la taula no existia, insertarà alguns usuaris i les seues contrasenyes.</li>
+<li>Si la taula ja exixtia, no els insertarà.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Exportem la base de dades per poder utilitzar-la en altres scripts de javascript.</li>
+</ol>
+<h2 id="afegim-lapi-rest-amb-endpoints-dacces-a-dades">Afegim l'API REST amb endpoints d'accés a dades</h2>
+<p>Amb la connexió a la base de dades creada, anem a utilitzar-la en el servidor. El primer que haurem de fer és importar el codi en l'arxiu <code>server.js</code>.</p>
+<pre><code class="language-javascript">var express = require(&quot;express&quot;)
+var app = express()
+var db = require(&quot;./database.js&quot;)
+</code></pre>
+<p>Per a una API REST, l'objectiu principal és crear una font de dades sense estat, uniforme, sota demanda i basada en URI, que represente entitats en un format estàndard (en aquest cas, una resposta JSON). Les principals operacions/punts finals que podeu implementar en un servei REST són:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Operació</th>
+<th align="left">Mètode HTTP</th>
+<th align="left">Endpoint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Obtindre llista d'usuaris</td>
+<td align="left">GET</td>
+<td align="left">/api/users/</td>
+</tr>
+<tr>
+<td align="left">Obtindre un usuari per <em>id</em></td>
+<td align="left">GET</td>
+<td align="left">/api/user/{id}</td>
+</tr>
+<tr>
+<td align="left">Crear un usuari</td>
+<td align="left">POST</td>
+<td align="left">/api/user/</td>
+</tr>
+<tr>
+<td align="left">Actualitzar un usuari donat el seu <em>id</em></td>
+<td align="left">PATCH</td>
+<td align="left">/api/user/{id}</td>
+</tr>
+<tr>
+<td align="left">Eliminar un usuari per <em>id</em></td>
+<td align="left">DELETE</td>
+<td align="left">/api/user/{id}</td>
+</tr>
+</tbody>
+</table>
+<h3 id="obtindre-llista-dusuaris">Obtindre llista d'usuaris</h3>
+<p>El primer endpoint de l'API serà obtindre la llista d'usuaris. El següent codi de <em>server.js</em> crearà un endpoint per a obtindre una llista d'usuaris. Tingues en compte que has de posar el codi abans del fragment de resposta per defecte en cas d'accedir a un endpoint inexistent.</p>
+<pre><code class="language-javascript">app.get(&quot;/api/users&quot;, (req, res, next) =&gt; {
+    var sql = &quot;select * from user&quot;
+    var params = []
+    db.all(sql, params, (err, rows) =&gt; {
+        if (err) {
+          res.status(400).json({&quot;error&quot;:err.message});
+          return;
+        }
+        res.json({
+            &quot;message&quot;:&quot;success&quot;,
+            &quot;data&quot;:rows
+        })
+      });
+});
+</code></pre>
+<ol>
+<li>Cada endpoint d'<em>Express.js</em> rep un objecte <code>req</code> (request) que conté les capçaleres, els paràmetres i el cos de la petició, i un objecte <code>res</code> que contindrà el contingut de la resposta i capçaleres adicionals.</li>
+<li>db.all(sql, params, callback) és un comandament contra SQLite per obtindre tots els registres d'una petició SQL. La funció de <em>callback</em>, rep un objecte d'error <code>err</code> i <code>row</code>, les files rebudes de la base de dades.<ol>
+<li>Si hi ha algun problema amb la petició SQL, l'error serà un objecte no nul i la funció de <em>callback</em> tornarà un HTTP 400 (Petició incorrect) i un JSON amb el missatge d'error.</li>
+<li>Si tot va com cal, tornarà un JSON amb el missatge i les dades (un array de registres/files).</li>
+</ol>
+</li>
+</ol>
+<h3 id="obtindre-un-usuari-per-id">Obtindre un usuari per <em>id</em></h3>
+<pre><code class="language-javascript">app.get(&quot;/api/user/:id&quot;, (req, res, next) =&gt; {
+    var sql = &quot;select * from user where id = &quot; + req.params.id
+    db.get(sql, (err, row) =&gt; {
+        if (err) {
+          res.status(400).json({&quot;error&quot;:err.message});
+        }else{
+            res.json({
+                &quot;message&quot;:&quot;success&quot;,
+                &quot;data&quot;:row
+            })
+        }
+      });
+});
+</code></pre>
+<ol>
+<li>En este cas, en compte d'obtindre tota la llista d'usuaris, en la petició s'enviarà l'id de l'usuari que es vol obtindre i en la resposta obtindrem solament una fila/registre de la base de dades. Utilitzarem per fer-ho un endpoint especial d'Express amb una variable <code>(:id)</code>, mapejada a la variable corresponent de la petició <code>req.params.id</code>. Per exemple, una petició <code>/api/user/1</code> filtrarà la petició utilitzant id = 1.</li>
+<li>Utilitzant la funció <code>db.get</code> en compte de <code>db.all</code> obtenim una sola fila i no una llista.</li>
+</ol>
+<p><strong>En este moment podeu realitzar el primer dels exercicis.</strong></p>
+<h3 id="crear-un-usuari">Crear un usuari</h3>
+<p>En este cas, el mètode HTTP utilitzat serà POST per a enviar les dades en les capçaleres i no a través de la URL. Normalment estes dades s'envien codificades en forma de URL des d'un formulari. Necessitem aleshores fer un processat de la <strong>petició POST</strong> per obtindre les dades que envia el client. Ho fem insertant el següent fragment de codi al <em>server.js</em>:</p>
+<pre><code class="language-javascript">var bodyParser = require(&quot;body-parser&quot;);
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+</code></pre>
+<p>El <em>middleware body-parser</em> intenta obtindre les dades de la petició. Per això analitza el contingut del <em>body</em> que es solen enviar com a URL encoded, com en este cas, o com a JSON i les guarda en un objecte <code>req.body</code>. A l'endpoint següent utilitzem este objecte:</p>
+<pre><code class="language-javascript">app.post(&quot;/api/user/&quot;, (req, res, next) =&gt; {
+    var errors=[]
+    if (!req.body.password){
+        errors.push(&quot;No password specified&quot;);
+    }
+    if (!req.body.email){
+        errors.push(&quot;No email specified&quot;);
+    }
+    if (errors.length){
+        res.status(400).json({&quot;error&quot;:errors.join(&quot;,&quot;)});
+        return;
+    }
+    var data = {
+        name: req.body.name,
+        email: req.body.email,
+        password : req.body.password
+    }
+    var sql ='INSERT INTO user (name, email, password) VALUES (?,?,?)'
+    var params =[data.name, data.email, data.password]
+    db.run(sql, params, function (err, result) {
+        if (err){
+            res.status(400).json({&quot;error&quot;: err.message})
+            return;
+        }
+        res.json({
+            &quot;message&quot;: &quot;success&quot;,
+            &quot;data&quot;: data,
+            &quot;id&quot; : this.lastID
+        })
+    });
+})
+</code></pre>
+<ol>
+<li>Utilitzem app.post() per a restringir el mètode sols a POST.</li>
+<li>El <code>req.body</code> contindrà les dades del formulari que envia el client.<ol>
+<li>Les dades en cru tindrien un aspecte com el següent:
+    <code>name=test&amp;email=test%40example.com&amp;password=test123</code></li>
+<li>El <code>body-parser</code> convertirà l'anterior cadena en un objecte JSON.
+    <code>{name:'test', email: 'test@example.com', password: 'test123'}</code></li>
+<li>Comprovem els camps obligatoris. Si en la petició estan en blanc, tornarem un <code>HTTP 400</code> (Bad Request) amb la llista d'errors.</li>
+</ol>
+</li>
+<li>Utilitzem <code>db.run(sql, params, callback)</code> amb una instrucció <strong>INSERT</strong> a l'sql, i els valors a guardar.<ol>
+<li>La funció de callback comprovarà si hi ha algun error <code>(err != null)</code>.</li>
+<li>Si tot va com cal, retornem un JSON amb un missatge com a que ha anat bé, les dades insertades i l'id del nou usuari. Este id és útil en el client si es vol recuperar l'usuari després de la seua creació.</li>
+<li>Fixeu-se que ací no utilitzem la notació de funció fletxa com fins ara, per a poder fer ús de l'objecte <code>this</code> i poder recuperar el <em>lastID</em>.</li>
+</ol>
+</li>
+</ol>
+<p><strong>En este moment podeu realitzar el segon, tercer i quart exercicis.</strong></p>
+<h3 id="actualitzar-un-usuari-donat-el-seu-id">Actualitzar un usuari donat el seu <em>id</em></h3>
+<p>Per a operacions d'actualització, utilitzem el mètode <strong>patch</strong> d'<em>Express.js</em>, que s'utilitza per a reemplaçar dades. Enviem des del client un subconjunt de dades a ser reemplaçades. </p>
+<p>L'endpoint quedaria així:</p>
+<pre><code class="language-javascript">app.patch(&quot;/api/user/:id&quot;, (req, res, next) =&gt; {
+    var data = {
+        name: req.body.name,
+        email: req.body.email,
+        password : req.body.password ? md5(req.body.password) : null
+    }
+    db.run(
+        `UPDATE user set 
+           name = COALESCE(?,name), 
+           email = COALESCE(?,email), 
+           password = COALESCE(?,password) 
+           WHERE id = ?`,
+        [data.name, data.email, data.password, req.params.id],
+        function (err, result) {
+            if (err){
+                res.status(400).json({&quot;error&quot;: res.message})
+                return;
+            }
+            res.json({
+                message: &quot;success&quot;,
+                data: data,
+                changes: this.changes
+            })
+    });
+})
+</code></pre>
+<ol>
+<li>Ja que algun dels camps poden estar buits perquè no es volen actualitzarm utilitzem la funció <em>COALESCE</em> per a obtindre el primer valor no nul, de forma que actualitzem en cas de ser null i deixem el camp amb el valor que ja tenia en cas d'enviar-lo a null des del client.</li>
+<li>De nou utilitzem la notació clàssica de funcions de callback per a accedir a <code>this.changes</code>, que ens torna el nombre de files actualitzat. Este número es podria utilitzar per a comprovar si s'han actualitzat dades o no, per a actualitzar la interfície de l'usuari per exemple.</li>
+</ol>
+<p><strong>En este moment pots fer l'exercici 5</strong></p>
+<h3 id="eliminar-un-usuari-per-id">Eliminar un usuari per <em>id</em></h3>
+<p><strong>La implementació d'este endpoint es deixa com a exercici 6</strong></p>
+<p><strong>En l'exercici 7 comprovaràs si es vulnerable a SQLi</strong></p>
+<h2 id="exercicis">Exercicis</h2>
+<ol>
+<li>L'endpoint de consulta d'usuari per id és vulnerable a atacs d'injecció d'SQL? Demostra la teua afirmació.</li>
+<li>Utilitza Postman per a insertar un usuari.</li>
+<li>Utilitza curl per a insertar un usuari.</li>
+<li>Veus alguna configuració dèbil en l'endpoint de creació d'usuari? Si és el cas, corregix-la.</li>
+<li>Prova l'API d'actualització d'usuaris. Canvia noms, correus i contrasenyes.</li>
+<li>Construix l'endpoint d'eliminació d'uausris. Utilitza el mètode delete d'Express.</li>
+<li>L'endpoint d'eliminació d'usuaris que has implementat és vulnerable a atacs d'injecció d'SQL? Comprova-ho.</li>
+</ol>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../Unitat%201/CD-CI/" class="md-footer__link md-footer__link--prev" aria-label="Previous: CD/CI" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              CD/CI
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../../about/" class="md-footer__link md-footer__link--next" aria-label="Next: About" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              About
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>
