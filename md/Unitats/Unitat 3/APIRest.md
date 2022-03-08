@@ -354,7 +354,7 @@ app.patch("/api/user/:id", (req, res, next) => {
 
 **La implementació d'este endpoint es deixa com a exercici 6**
 
-**En l'exercici 7 comprovaràs si es vulnerable a SQLi**
+**En l'exercici 9 comprovaràs si es vulnerable a SQLi**
 
 ## Exercicis 
 
@@ -362,6 +362,8 @@ app.patch("/api/user/:id", (req, res, next) => {
 2. Utilitza Postman per a insertar un usuari.
 3. Utilitza curl per a insertar un usuari.
 4. Veus alguna configuració dèbil en l'endpoint de creació d'usuari? Si és el cas, corregix-la.
-5. Prova l'API d'actualització d'usuaris. Canvia noms, correus i contrasenyes.
-6. Construix l'endpoint d'eliminació d'uausris. Utilitza el mètode delete d'Express.
-7. L'endpoint d'eliminació d'usuaris que has implementat és vulnerable a atacs d'injecció d'SQL? Comprova-ho.
+5. Prova l'API d'actualització d'usuaris utilitzant postman. Canvia noms, correus i contrasenyes.
+6. Prova l'API d'actualització d'usuaris utilitzant curl. Canvia noms, correus i contrasenyes.
+7. Construix l'endpoint d'eliminació d'uausris. Utilitza el mètode delete d'Express.
+8. Fes proves amb postman i amb curl.
+9. L'endpoint d'eliminació d'usuaris que has implementat és vulnerable a atacs d'injecció d'SQL? Comprova-ho.

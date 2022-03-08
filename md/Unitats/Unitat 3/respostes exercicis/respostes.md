@@ -17,5 +17,5 @@
     var md5 = require("md5")
     // Encriptem la contrasenya abans d'insertar-la
     password : md5(req.body.password)
-    
+
 5. 
