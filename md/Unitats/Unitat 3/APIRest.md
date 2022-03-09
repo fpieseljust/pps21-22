@@ -374,5 +374,6 @@ app.patch("/api/user/:id", (req, res, next) => {
 9.  L'endpoint d'eliminació d'usuaris que has implementat és vulnerable a atacs d'injecció d'SQL? Comprova-ho.
 
 ## Exercicis d'ampliació
+
 1. Fes un formulari per a insertar usuaris contra l'endpoint d'inserció d'usuaris.
 2. Funciona? En cas negatiu, sabries qué canviar per a fer-lo funcionar?
