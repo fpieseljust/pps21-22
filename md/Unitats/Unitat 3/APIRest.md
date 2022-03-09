@@ -371,4 +371,8 @@ app.patch("/api/user/:id", (req, res, next) => {
 6. Prova l'API d'actualització d'usuaris utilitzant curl. Canvia noms, correus i contrasenyes.
 7. Construix l'endpoint d'eliminació d'uausris. Utilitza el mètode delete d'Express.
 8. Fes proves amb postman i amb curl.
-9. L'endpoint d'eliminació d'usuaris que has implementat és vulnerable a atacs d'injecció d'SQL? Comprova-ho.
+9.  L'endpoint d'eliminació d'usuaris que has implementat és vulnerable a atacs d'injecció d'SQL? Comprova-ho.
+
+## Exercicis d'ampliació
+1. Fes un formulari per a insertar usuaris contra l'endpoint d'inserció d'usuaris.
+2. Funciona? En cas negatiu, sabries qué canviar per a fer-lo funcionar?
