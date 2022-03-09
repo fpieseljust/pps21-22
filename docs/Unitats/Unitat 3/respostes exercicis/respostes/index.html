@@ -382,7 +382,35 @@ Mirar /api/user2/</li>
     // Encriptem la contrasenya abans d'insertar-la
     password : md5(req.body.password)</p>
 </li>
-<li></li>
+<li>
+<p>Prova l'API d'actualització d'usuaris utilitzant postman. Canvia noms, correus i contrasenyes.</p>
+</li>
+<li>
+<p>Prova l'API d'actualització d'usuaris utilitzant curl. Canvia noms, correus i contrasenyes.
+   curl -X PATCH -d "email=user@example1.com" http://localhost:9000/api/user/2</p>
+</li>
+<li>
+<p>Construix l'endpoint d'eliminació d'usuaris. Utilitza el mètode delete d'Express.
+    app.delete("/api/user/:id", (req, res, next) =&gt; {
+        db.run(
+            'DELETE FROM user WHERE id = ?',
+            req.params.id,
+            function (err, result) {
+                if (err){
+                    res.status(400).json({"error": res.message})
+                    return;
+                }
+                res.json({"message":"deleted", changes: this.changes})
+        });
+    })</p>
+</li>
+<li>
+<p>Fes proves amb postman i amb curl.
+   curl -X "DELETE" http://localhost:8000/api/user/2</p>
+</li>
+<li>
+<p>L'endpoint d'eliminació d'usuaris que has implementat és vulnerable a atacs d'injecció d'SQL? Comprova-ho.</p>
+</li>
 </ol>
                 
               

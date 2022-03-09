@@ -728,8 +728,8 @@ let db = new sqlite3.Database(DBSOURCE, (err) =&gt; {
             }else{
                 // Table just created, creating some rows
                 var insert = 'INSERT INTO user (name, email, password) VALUES (?,?,?)'
-                db.run(insert, [&quot;admin&quot;,&quot;admin@example.com&quot;,md5(&quot;admin123456&quot;)])
-                db.run(insert, [&quot;user&quot;,&quot;user@example.com&quot;,md5(&quot;user123456&quot;)])
+                db.run(insert, [&quot;admin&quot;,&quot;admin@example.com&quot;,&quot;admin123456&quot;])
+                db.run(insert, [&quot;user&quot;,&quot;user@example.com&quot;,&quot;user123456&quot;])
             }
         });  
     }
@@ -799,8 +799,7 @@ var db = require(&quot;./database.js&quot;)
 <p>El primer endpoint de l'API serà obtindre la llista d'usuaris. El següent codi de <em>server.js</em> crearà un endpoint per a obtindre una llista d'usuaris. Tingues en compte que has de posar el codi abans del fragment de resposta per defecte en cas d'accedir a un endpoint inexistent.</p>
 <pre><code class="language-javascript">app.get(&quot;/api/users&quot;, (req, res, next) =&gt; {
     var sql = &quot;select * from user&quot;
-    var params = []
-    db.all(sql, params, (err, rows) =&gt; {
+    db.all(sql, (err, rows) =&gt; {
         if (err) {
           res.status(400).json({&quot;error&quot;:err.message});
           return;
@@ -842,6 +841,11 @@ var db = require(&quot;./database.js&quot;)
 <p><strong>En este moment podeu realitzar el primer dels exercicis.</strong></p>
 <h3 id="crear-un-usuari">Crear un usuari</h3>
 <p>En este cas, el mètode HTTP utilitzat serà POST per a enviar les dades en les capçaleres i no a través de la URL. Normalment estes dades s'envien codificades en forma de URL des d'un formulari. Necessitem aleshores fer un processat de la <strong>petició POST</strong> per obtindre les dades que envia el client. Ho fem insertant el següent fragment de codi al <em>server.js</em>:</p>
+<blockquote>
+<p>Abans de agregar el següent fragment de codi, necessitem instal·lar el mòdul <code>body-parser</code>.</p>
+</blockquote>
+<pre><code class="language-bash">npm install body-parser
+</code></pre>
 <pre><code class="language-javascript">var bodyParser = require(&quot;body-parser&quot;);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

@@ -162,8 +162,8 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
             }else{
                 // Table just created, creating some rows
                 var insert = 'INSERT INTO user (name, email, password) VALUES (?,?,?)'
-                db.run(insert, ["admin","admin@example.com",md5("admin123456")])
-                db.run(insert, ["user","user@example.com",md5("user123456")])
+                db.run(insert, ["admin","admin@example.com","admin123456"])
+                db.run(insert, ["user","user@example.com","user123456"])
             }
         });  
     }
@@ -209,8 +209,7 @@ El primer endpoint de l'API serà obtindre la llista d'usuaris. El següent codi
 ```javascript
 app.get("/api/users", (req, res, next) => {
     var sql = "select * from user"
-    var params = []
-    db.all(sql, params, (err, rows) => {
+    db.all(sql, (err, rows) => {
         if (err) {
           res.status(400).json({"error":err.message});
           return;
@@ -254,6 +253,12 @@ app.get("/api/user/:id", (req, res, next) => {
 ### Crear un usuari
 
 En este cas, el mètode HTTP utilitzat serà POST per a enviar les dades en les capçaleres i no a través de la URL. Normalment estes dades s'envien codificades en forma de URL des d'un formulari. Necessitem aleshores fer un processat de la **petició POST** per obtindre les dades que envia el client. Ho fem insertant el següent fragment de codi al *server.js*:
+
+> Abans de agregar el següent fragment de codi, necessitem instal·lar el mòdul `body-parser`.
+
+```bash
+npm install body-parser
+```
 
 ```javascript
 var bodyParser = require("body-parser");
