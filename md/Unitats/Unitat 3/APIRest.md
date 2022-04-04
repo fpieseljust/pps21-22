@@ -373,7 +373,12 @@ app.patch("/api/user/:id", (req, res, next) => {
 8. Fes proves amb postman i amb curl.
 9.  L'endpoint d'eliminació d'usuaris que has implementat és vulnerable a atacs d'injecció d'SQL? Comprova-ho.
 
-## Exercicis d'ampliació
+## Exercicis d'ampliació (front-end)
 
 1. Fes un formulari per a insertar usuaris contra l'endpoint d'inserció d'usuaris.
 2. Funciona? En cas negatiu, sabries qué canviar per a fer-lo funcionar?
+3. Per evitar la sobrecàrrega dels servidors, el client pot executar, i déu fer-ho, comprovacions abans d'enviar a l'API qualsevol petició. Fes que el client comprove que ningun dels camps està buit.
+4. Afegeix un camp *password2* i que el client comprove que la contrasenya coincideix amb el camp password abans d'enviar.
+5. Comprova amb alguna de les ferramentes vistes en el taller de Hacking Ètic, que eres capaç de obtindre usuaris, correus i contrasenyes.
+6. Com podriem evitar que obtingueren estes dades en una comunicació?
+
